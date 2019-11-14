@@ -8,8 +8,18 @@ def analyser_commande():
     args = parser.parse_args()
     return args
 
-
-print(analyser_commande())
-
 if __name__ == '__main__':
     analyser_commande()
+
+
+def afficher_damier_ascii(etat):
+
+    dessus = f'Légende: 1=idul, 2=automate' + '\n'
+    dessus += '   -----------------------------------' + '\n'
+    dessous = '--|-----------------------------------' + '\n'
+    dessous += '  | 1   2   3   4   5   6   7   8   9'
+
+    damier_vide = []
+
+
+    print(dessus + dessous)
