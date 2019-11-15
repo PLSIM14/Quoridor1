@@ -1,4 +1,5 @@
 import argparse
+import json
 
 
 def analyser_commande():
@@ -11,15 +12,17 @@ def analyser_commande():
 if __name__ == '__main__':
     analyser_commande()
 
-
 def afficher_damier_ascii(etat):
 
-    dessus = f'Légende: 1=idul, 2=automate' + '\n'
+    json.loads(etat)
+
+    dessus = f'Légende: 1={etat["joueurs"][0]["nom"]}, 2=automate' + '\n'
     dessus += '   -----------------------------------' + '\n'
     dessous = '--|-----------------------------------' + '\n'
     dessous += '  | 1   2   3   4   5   6   7   8   9'
 
     damier_vide = []
+
     for i in range(18, 1, -1):
 
         damier_pair = list(f'{i//2} | .   .   .   .   .   .   .   .   . |')
@@ -29,7 +32,12 @@ def afficher_damier_ascii(etat):
             damier_vide.append(damier_pair) 
         else:
               damier_vide.append(damier_impair) 
+
+    for i in range(2):
+        damier_vide[18-2*etat["joueurs"][i]["pos"][1]][4*etat["joueurs"][i]["pos"][0]] = f'{i+1}'
+
     bon_affichage = []
+
     for ligne in damier_vide:
         bon_affichage += ligne + ['\n']
 
@@ -37,6 +45,5 @@ def afficher_damier_ascii(etat):
 
     print(dessus + yeet + dessous)
 
-
-afficher_damier_ascii('yo')
+afficher_damier_ascii(etat)
 
