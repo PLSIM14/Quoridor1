@@ -20,6 +20,6 @@ def débuter_partie(idul):
     rep.json()
 
 
+def jouer_coup(id_partie, type_coup, position):
+    raise RuntimeError('')
 
-
-débuter_partie('mapar9')

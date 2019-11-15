@@ -20,6 +20,23 @@ def afficher_damier_ascii(etat):
     dessous += '  | 1   2   3   4   5   6   7   8   9'
 
     damier_vide = []
+    for i in range(18, 1, -1):
+
+        damier_pair = list(f'{i//2} | .   .   .   .   .   .   .   .   . |')
+        damier_impair = list('  |                                   |')
+        
+        if i%2 == 0:
+            damier_vide.append(damier_pair) 
+        else:
+              damier_vide.append(damier_impair) 
+    bon_affichage = []
+    for ligne in damier_vide:
+        bon_affichage += ligne + ['\n']
+
+        yeet = ''.join(bon_affichage)
+
+    print(dessus + yeet + dessous)
 
 
-    print(dessus + dessous)
+afficher_damier_ascii('yo')
+
