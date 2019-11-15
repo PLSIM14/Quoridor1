@@ -36,6 +36,16 @@ def afficher_damier_ascii(etat):
     for i in range(2):
         damier_vide[18-2*etat["joueurs"][i]["pos"][1]][4*etat["joueurs"][i]["pos"][0]] = f'{i+1}'
 
+    for i in range(len(etat["murs"]["horizontaux"])):
+        for j in range(7):
+
+            damier_vide[19-2*etat["murs"]["horizontaux"][i][1]][4*etat["murs"]["horizontaux"][i][0]+j-1] = '-'
+
+    for i in range(len(etat["murs"]["verticaux"])):
+        for j in range(3):
+            damier_vide[18-2*etat["murs"]["horizontaux"][i][1]-j][4*etat["murs"]["horizontaux"][i][0]-2] = '|'
+
+
     bon_affichage = []
 
     for ligne in damier_vide:
